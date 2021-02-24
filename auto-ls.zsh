@@ -55,7 +55,9 @@ auto-ls () {
     if [[ ${WIDGET} == accept-line ]] && [[ $#BUFFER -eq 0 ]]; then
       # Shortcut to reduce the number of empty lines appearing
       # when pressing Enter
-      echo && zle redisplay
+      # echo && zle redisplay
+			# imkerberos: remove the shortcut empty line.
+      tput cuu 1
     elif [[ ${WIDGET} != accept-line ]] && [[ ${LASTWIDGET} == .accept-line ]]; then
       # Hack to make only 2 lines appear after `dirlist` navigation
       # (Uses a VT100 escape sequence to move curser up one line…)
